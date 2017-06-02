@@ -876,3 +876,35 @@ body {
 .center {
     text-align: center;
 }
+
+.instagram-media {
+    background:#FFF;
+    border:0;
+    border-radius:3px;
+    box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);
+    margin: 1px;
+    max-width:658px;
+    padding:0;
+    width:99.375%;
+    width:-webkit-calc(100% - 2px);
+    width:calc(100% - 2px);
+}
+
+.instagram-border {
+    background:#F8F8F8;
+    line-height:0;
+    margin-top:40px;
+    padding:49.6124031007752% 0;
+    text-align:center;
+    width:100%;
+}
+
+.instagram-bg {
+    background:url("img/portfolio/bg-instagram.png");
+    display:block;
+    height:44px;
+    margin:0 auto -44px;
+    position:relative;
+    top:-22px;
+    width:44px;
+}
