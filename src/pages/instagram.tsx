@@ -1,13 +1,13 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
-import { config, animated, useSpring, useTrail } from 'react-spring'
-import { Flex } from '../elements'
-import Layout from '../components/layout'
-import { ChildImageSharp } from '../types'
-import SEO from '../components/SEO'
-import Heart from '../heart.svg'
+import React from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
+import { config, animated, useSpring, useTrail } from 'react-spring';
+import { Flex, AnimatedBox } from '../elements';
+import Layout from '../components/layout';
+import { ChildImageSharp } from '../types';
+import SEO from '../components/SEO';
+import Heart from '../heart.svg';
 
 const Grid = styled(animated.div)`
   display: grid;
@@ -24,7 +24,7 @@ const Grid = styled(animated.div)`
   @media (max-width: ${props => props.theme.breakpoints[0]}) {
     grid-template-columns: 1fr;
   }
-`
+`;
 
 const Overlay = styled.div`
   position: absolute;
@@ -36,7 +36,7 @@ const Overlay = styled.div`
   z-index: 2;
   opacity: 0;
   transition: all 0.3s ease 0s;
-`
+`;
 
 const Title = styled.div`
   color: white;
@@ -49,7 +49,7 @@ const Title = styled.div`
   transform: translateY(-45px);
   transition: all 0.4s ease 0s;
   opacity: 0;
-`
+`;
 
 const Bottom = styled(Flex)`
   color: white;
@@ -59,7 +59,7 @@ const Bottom = styled(Flex)`
   transform: translateY(45px);
   opacity: 0;
   transition: all 0.4s ease 0s;
-`
+`;
 
 const Item = styled(animated.a)`
   position: relative;
@@ -82,7 +82,7 @@ const Item = styled(animated.a)`
       opacity: 1;
     }
   }
-`
+`;
 
 const Content = styled(Flex)`
   z-index: 10;
@@ -92,65 +92,94 @@ const Content = styled(Flex)`
   right: 0;
   bottom: 0;
   padding: ${props => props.theme.space[5]};
-`
+`;
 
 const HeartIcon = styled.img`
   width: 1.25rem;
   height: 1.25rem;
-`
+`;
 
 type Props = {
   data: {
     instagram: {
       nodes: {
-        caption?: string
-        id: string
-        timestamp: number
-        likes: number
-        localFile: ChildImageSharp
-      }[]
-    }
-  }
-}
+        caption?: string;
+        id: string;
+        timestamp: number;
+        likes: number;
+        localFile: ChildImageSharp;
+      }[];
+    };
+  };
+};
 
 const Instagram: React.FunctionComponent<Props> = ({
   data: {
-    instagram: { nodes: instagram },
-  },
+    instagram: { nodes: instagram }
+  }
 }) => {
   const pageAnimation = useSpring({
     config: config.default,
     from: { opacity: 0 },
-    to: { opacity: 1 },
-  })
+    to: { opacity: 1 }
+  });
 
   const trail = useTrail(instagram.length, {
     config: {
       mass: 1,
       tension: 210,
-      friction: 23,
+      friction: 23
     },
     from: { opacity: 0 },
-    to: { opacity: 1 },
-  })
+    to: { opacity: 1 }
+  });
 
   return (
     <Layout color="#3F4F67">
-      <SEO title="Instagram | Jodie" />
+      <SEO title="Instagram | Sebastiaan Jansen" />
+      <AnimatedBox
+        style={pageAnimation}
+        py={[6, 6, 6, 8]}
+        px={[6, 6, 8, 6, 8, 13]}
+      >
+        <h1>Hi. I'm Sebastiaan Jansen!</h1>
+        <p>
+          You can visit my <a href="https://www.lekoarts.de/en">website</a> or
+          my other{' '}
+          <a href="https://gatsby-starter-portfolio.netlify.com">
+            Gatsby projects
+          </a>
+          .
+        </p>
+      </AnimatedBox>
       <Grid style={pageAnimation}>
         {trail.map((style, index) => {
           // Grab everything before the first hashtag (because I write my captions like that)
-          const post = instagram[index]
-          const title = post.caption ? post.caption.split('#')[0] : ''
-          const date = new Date(post.timestamp * 1000).toLocaleDateString('de-DE')
+          const post = instagram[index];
+          const title = post.caption ? post.caption.split('#')[0] : '';
+          const date = new Date(post.timestamp * 1000).toLocaleDateString(
+            'nl-BE'
+          );
 
           return (
-            <Item style={style} href={`https://www.instagram.com/p/${post.id}/`} key={post.id}>
+            <Item
+              style={style}
+              href={`https://www.instagram.com/p/${post.id}/`}
+              key={post.id}
+            >
               <Overlay />
               <Img fluid={post.localFile.childImageSharp.fluid} />
-              <Content flexDirection="column" flexWrap="nowrap" justifyContent="space-between">
+              <Content
+                flexDirection="column"
+                flexWrap="nowrap"
+                justifyContent="space-between"
+              >
                 <Title>{title}</Title>
-                <Bottom flexDirection="row" flexWrap="nowrap" justifyContent="space-between">
+                <Bottom
+                  flexDirection="row"
+                  flexWrap="nowrap"
+                  justifyContent="space-between"
+                >
                   <span>
                     <HeartIcon src={Heart} /> {post.likes}
                   </span>
@@ -158,18 +187,18 @@ const Instagram: React.FunctionComponent<Props> = ({
                 </Bottom>
               </Content>
             </Item>
-          )
+          );
         })}
       </Grid>
     </Layout>
-  )
-}
+  );
+};
 
-export default Instagram
+export default Instagram;
 
 export const query = graphql`
   query Instagram {
-    instagram: allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 30) {
+    instagram: allInstaNode(sort: { fields: timestamp, order: DESC }) {
       nodes {
         caption
         id
@@ -185,4 +214,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
