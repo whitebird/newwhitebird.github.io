@@ -1,14 +1,14 @@
-- title: 'Creative Developer'
-  title_detail: "Creative Developer at VRT Innovation"
-  slug: 'vrtinnovatie'
-  category: 'Programming'
-  color: '#182d54'
-  images: 'vrtinnovatie'
-  youtube: []
-  cover: './vrtinnovatie/projects-vrtinnovatie-001.jpg'
-  desc: 'The first meal of the day. https://innovatie.vrt.be/.
-  
-  <a href="http://www.studionunu.com/">Photo by © Studio NUNU</a>'
+- title: 'Marble Machine X'
+  title_detail: 'Marble Machine X'
+  slug: 'marblemachinex'
+  category: 'Maker'
+  color: '#EED6B1'
+  images: 'mmx'
+  youtube:
+    - 'IvUU8joBb1Q'
+    - 'isosWOzmbe0'
+  cover: './mmx/projects-mmx-001.png'
+  desc: 'In 2016 bandleader Martin Molin of the band <a href="https://wintergatan.net/" alt="Wintergatan band website">Wintergatan</a> released the "Marble Machine" video. Soon after Martin started working on a new and improved version, called the Marble Machine X. This version is still being built and is a collaboration effort of about 20 engineers from all around the world, including me. My part of the job consist of converting the digitally composed music into templates to be put on the machine. You can check out weekly video updates <a href="https://www.youtube.com/channel/UCcXhhVwCT6_WqjkEniejRJQ" alt="Wintergatan YouTube channel">here on the Wintergatan YouTube channel.</a>'
 - title: 'Tik Tak'
   title_detail: "Tik Tak - Children's show for Belgian television"
   slug: 'tiktak'
@@ -19,17 +19,6 @@
     - '_yPvRyfdJlw'
     - '5325efJ4te0'
   cover: './tiktak/projects-tiktak-001.jpg'
-  desc: 'The first meal of the day.'
-- title: 'Marble Machine X'
-  title_detail: 'Marble Machine X'
-  slug: 'marblemachinex'
-  category: 'Maker'
-  color: '#182d54'
-  images: 'mmx'
-  youtube:
-    - 'IvUU8joBb1Q'
-    - 'isosWOzmbe0'
-  cover: './mmx/projects-mmx-001.jpg'
   desc: 'The first meal of the day.'
 - title: 'Snow Patrol Videowall'
   title_detail: 'Snow Patrol Videowall'

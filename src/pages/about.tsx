@@ -24,12 +24,15 @@ const About = () => {
       >
         <h1>Hi. I'm Sebastiaan Jansen!</h1>
         <p>
-          You can visit my <a href="https://www.lekoarts.de/en">website</a> or
-          my other{' '}
-          <a href="https://gatsby-starter-portfolio.netlify.com">
-            Gatsby projects
+          An employee for the Flemish broadcaster
+          <a href="https://www.vrt.be/" alt="VRT main website">
+            VRT
           </a>
-          .
+          . I work there as a creative developer for the{' '}
+          <a href="https://innovatie.vrt.be/en" alt="VRT Innovation website">
+            Innovation
+          </a>{' '}
+          department.
         </p>
       </AnimatedBox>
     </Layout>

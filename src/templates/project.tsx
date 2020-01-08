@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import YouTube from 'react-youtube';
+// import YouTube from 'react-youtube';
 import { transparentize, readableColor } from 'polished';
 import styled from 'styled-components';
 import { config, useSpring, animated } from 'react-spring';
@@ -17,7 +17,8 @@ const PBox = styled(AnimatedBox)`
 const Content = styled(Box)<{ bg: string }>`
   background-color: ${props => transparentize(0.9, props.bg)};
 
-  .gatsby-image-wrapper:not(:last-child) {
+  .gatsby-image-wrapper:not(:last-child),
+  .youtube-video {
     margin-bottom: ${props => props.theme.space[10]};
 
     @media (max-width: ${props => props.theme.breakpoints[3]}) {
@@ -39,6 +40,21 @@ const Description = styled(animated.div)`
   --x-height-multiplier: 0.35;
   line-height: 1.58;
 `;
+
+const YouTubeContainer = styled.div`
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+`;
+const YoutubeStyle = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%'
+};
 
 const PButton = styled(Button)<{ color: string }>`
   background: ${props => (props.color === 'white' ? 'black' : props.color)};
@@ -135,7 +151,14 @@ const Project: React.FunctionComponent<PageProps> = ({
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
           {project.youtube.map(videoId => (
-            <YouTube videoId={videoId} />
+            <YouTubeContainer className="youtube-video">
+              <iframe
+                style={YoutubeStyle}
+                src={'https://www.youtube.com/embed/' + videoId}
+                frameborder="0"
+                allowfullscreen="allowfullscreen"
+              ></iframe>
+            </YouTubeContainer>
           ))}
         </PBox>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
@@ -148,12 +171,12 @@ const Project: React.FunctionComponent<PageProps> = ({
           ))}
         </PBox>
       </Content>
-      <PBox style={{ textAlign: 'center' }} py={10} px={[6, 6, 8, 10]}>
+      {/* <PBox style={{ textAlign: 'center' }} py={10} px={[6, 6, 8, 10]}>
         <h2>Want to start your own project?</h2>
         <PButton color={project.color} py={4} px={8}>
           Contact me
         </PButton>
-      </PBox>
+      </PBox> */}
     </Layout>
   );
 };
