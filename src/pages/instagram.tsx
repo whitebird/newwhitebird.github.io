@@ -143,14 +143,7 @@ const Instagram: React.FunctionComponent<Props> = ({
         px={[6, 6, 8, 6, 8, 13]}
       >
         <h1>Hi. I'm Sebastiaan Jansen!</h1>
-        <p>
-          You can visit my <a href="https://www.lekoarts.de/en">website</a> or
-          my other{' '}
-          <a href="https://gatsby-starter-portfolio.netlify.com">
-            Gatsby projects
-          </a>
-          .
-        </p>
+        <p>Instagram explanation</p>
       </AnimatedBox>
       <Grid style={pageAnimation}>
         {trail.map((style, index) => {
@@ -168,7 +161,10 @@ const Instagram: React.FunctionComponent<Props> = ({
               key={post.id}
             >
               <Overlay />
-              <Img fluid={post.localFile.childImageSharp.fluid} />
+              {post.localFile ? (
+                <Img fluid={post.localFile.childImageSharp.fluid} />
+              ) : null}
+              {/* <Img fluid={post.localFile.childImageSharp.fluid} /> */}
               <Content
                 flexDirection="column"
                 flexWrap="nowrap"

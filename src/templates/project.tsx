@@ -133,7 +133,6 @@ const Project: React.FunctionComponent<PageProps> = ({
         </Description>
       </PBox>
       <Content bg={project.color} py={10}>
-        {JSON.stringify(project.youtube)}
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
           {project.youtube.map(videoId => (
             <YouTube videoId={videoId} />
