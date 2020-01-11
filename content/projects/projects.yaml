@@ -2,15 +2,15 @@
   title_detail: 'Marble Machine X'
   slug: 'marblemachinex'
   category: 'Maker'
-  color: '#EED6B1'
+  color: '#EADAB9'
   images: 'mmx'
   youtube:
     - 'IvUU8joBb1Q'
     - 'isosWOzmbe0'
   cover: './mmx/projects-mmx-001.png'
-  desc: 'In 2016 bandleader Martin Molin of the band <a href="https://wintergatan.net/" alt="Wintergatan band website">Wintergatan</a> released the "Marble Machine" video. Soon after Martin started working on a new and improved version, called the Marble Machine X. This version is still being built and is a collaboration effort of about 20 engineers from all around the world, including me. My part of the job consist of converting the digitally composed music into templates to be put on the machine. You can check out weekly video updates <a href="https://www.youtube.com/channel/UCcXhhVwCT6_WqjkEniejRJQ" alt="Wintergatan YouTube channel">here on the Wintergatan YouTube channel.</a>'
+  desc: 'In 2016 bandleader Martin Molin of the band <a href="https://wintergatan.net/" title="Wintergatan band website">Wintergatan</a> released the "Marble Machine" video. Soon after Martin started working on a new and improved version, called the Marble Machine X. This build is ongoing and is a collaborative effort of about 20 engineers from all around the world, including me. My part of the job consist of converting the digitally composed music into templates to be put on the machine. You can check out weekly video updates <a href="https://www.youtube.com/channel/UCcXhhVwCT6_WqjkEniejRJQ" title="Wintergatan YouTube channel">here on the Wintergatan YouTube channel.</a>'
 - title: 'Tik Tak'
-  title_detail: "Tik Tak - Children's show for Belgian television"
+  title_detail: 'Tik Tak'
   slug: 'tiktak'
   category: 'Maker'
   color: '#182d54'
@@ -19,7 +19,7 @@
     - '_yPvRyfdJlw'
     - '5325efJ4te0'
   cover: './tiktak/projects-tiktak-001.jpg'
-  desc: 'The first meal of the day.'
+  desc: "Tik Tak is the name of the children's show for Flemish television. For some parts of the show custom parts were 3D printed, lasercut and combined with Arduino modules and mostly off-the-shelf components. Models were designed with Fusion360 and edited with Inkscape. Parts were printed with an Ultimaker 3 and laser cut with a Trotec Speedy 300."
 - title: 'Snow Patrol Videowall'
   title_detail: 'Snow Patrol Videowall'
   slug: 'videowall'
@@ -40,4 +40,4 @@
     - 'gwHjslTJKfo'
     - '3Hd4Of8mj3Y'
   cover: './digibende/projects-digibende-001.jpg'
-  desc: 'The first meal of the day.'
+  desc: 'Digibende'

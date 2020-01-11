@@ -1,18 +1,18 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import React from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 // import YouTube from 'react-youtube';
-import { transparentize, readableColor } from 'polished';
-import styled from 'styled-components';
-import { config, useSpring, animated } from 'react-spring';
-import Layout from '../components/layout';
-import { Box, AnimatedBox, Button } from '../elements';
-import SEO from '../components/SEO';
+import { transparentize, readableColor } from 'polished'
+import styled from 'styled-components'
+import { config, useSpring, animated } from 'react-spring'
+import Layout from '../components/layout'
+import { Box, AnimatedBox, Button } from '../elements'
+import SEO from '../components/SEO'
 
 const PBox = styled(AnimatedBox)`
   max-width: 1400px;
   margin: 0 auto;
-`;
+`
 
 const Content = styled(Box)<{ bg: string }>`
   background-color: ${props => transparentize(0.9, props.bg)};
@@ -25,13 +25,13 @@ const Content = styled(Box)<{ bg: string }>`
       margin-bottom: ${props => props.theme.space[8]};
     }
   }
-`;
+`
 
 const Category = styled(AnimatedBox)`
   letter-spacing: 0.05em;
   font-size: ${props => props.theme.fontSizes[1]};
   text-transform: uppercase;
-`;
+`
 
 const Description = styled(animated.div)`
   max-width: 960px;
@@ -39,7 +39,7 @@ const Description = styled(animated.div)`
   --baseline-multiplier: 0.179;
   --x-height-multiplier: 0.35;
   line-height: 1.58;
-`;
+`
 
 const YouTubeContainer = styled.div`
   position: relative;
@@ -47,95 +47,92 @@ const YouTubeContainer = styled.div`
   height: 0;
   overflow: hidden;
   max-width: 100%;
-`;
+`
 const YoutubeStyle = {
   position: 'absolute',
   top: 0,
   left: 0,
   width: '100%',
-  height: '100%'
-};
+  height: '100%',
+}
 
 const PButton = styled(Button)<{ color: string }>`
   background: ${props => (props.color === 'white' ? 'black' : props.color)};
-  color: ${props =>
-    readableColor(props.color === 'white' ? 'black' : props.color)};
-`;
+  color: ${props => readableColor(props.color === 'white' ? 'black' : props.color)};
+`
 
 type PageProps = {
   data: {
     project: {
-      title_detail: string;
-      color: string;
-      category: string;
-      desc: string;
-      slug: string;
-      youtube: string[];
+      title_detail: string
+      color: string
+      category: string
+      desc: string
+      slug: string
+      youtube: string[]
       parent: {
-        modifiedTime: string;
-        birthTime: string;
-      };
+        modifiedTime: string
+        birthTime: string
+      }
       cover: {
         childImageSharp: {
           resize: {
-            src: string;
-          };
-        };
-      };
-    };
+            src: string
+          }
+        }
+      }
+    }
     images: {
       nodes: {
-        name: string;
+        name: string
         childImageSharp: {
           fluid: {
-            aspectRatio: number;
-            src: string;
-            srcSet: string;
-            sizes: string;
-            base64: string;
-            tracedSVG: string;
-            srcWebp: string;
-            srcSetWebp: string;
-          };
-        };
-      }[];
-    };
-  };
-};
+            aspectRatio: number
+            src: string
+            srcSet: string
+            sizes: string
+            base64: string
+            tracedSVG: string
+            srcWebp: string
+            srcSetWebp: string
+          }
+        }
+      }[]
+    }
+  }
+}
 
-const Project: React.FunctionComponent<PageProps> = ({
-  data: { project, images, youtube }
-}) => {
+const Project: React.FunctionComponent<PageProps> = ({ data: { project, images, youtube } }) => {
   const categoryAnimation = useSpring({
     config: config.slow,
     from: { opacity: 0, transform: 'translate3d(0, -30px, 0)' },
-    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' }
-  });
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+  })
 
   const titleAnimation = useSpring({
     config: config.slow,
     delay: 300,
     from: { opacity: 0 },
-    to: { opacity: 1 }
-  });
+    to: { opacity: 1 },
+  })
   const descAnimation = useSpring({
     config: config.slow,
     delay: 600,
     from: { opacity: 0 },
-    to: { opacity: 1 }
-  });
+    to: { opacity: 1 },
+  })
   const imagesAnimation = useSpring({
     config: config.slow,
     delay: 800,
     from: { opacity: 0 },
-    to: { opacity: 1 }
-  });
+    to: { opacity: 1 },
+  })
 
   return (
     <Layout color={project.color}>
       <SEO
         pathname={project.slug}
-        title={`${project.title_detail} | Jodie`}
+        title={`${project.title_detail} | Sebastiaan Jansen`}
         desc={project.desc}
         node={project.parent}
         banner={project.cover.childImageSharp.resize.src}
@@ -150,24 +147,18 @@ const Project: React.FunctionComponent<PageProps> = ({
       </PBox>
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
+          {images.nodes.map(image => (
+            <Img alt={image.name} key={image.childImageSharp.fluid.src} fluid={image.childImageSharp.fluid} />
+          ))}
           {project.youtube.map(videoId => (
             <YouTubeContainer className="youtube-video">
               <iframe
                 style={YoutubeStyle}
-                src={'https://www.youtube.com/embed/' + videoId}
-                frameborder="0"
-                allowfullscreen="allowfullscreen"
-              ></iframe>
+                src={`https://www.youtube.com/embed/${videoId}`}
+                frameBorder="0"
+                allowFullScreen="allowfullscreen"
+              />
             </YouTubeContainer>
-          ))}
-        </PBox>
-        <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
-          {images.nodes.map(image => (
-            <Img
-              alt={image.name}
-              key={image.childImageSharp.fluid.src}
-              fluid={image.childImageSharp.fluid}
-            />
           ))}
         </PBox>
       </Content>
@@ -178,10 +169,10 @@ const Project: React.FunctionComponent<PageProps> = ({
         </PButton>
       </PBox> */}
     </Layout>
-  );
-};
+  )
+}
 
-export default Project;
+export default Project
 
 export const query = graphql`
   query ProjectTemplate($slug: String!, $images: String!) {
@@ -206,10 +197,7 @@ export const query = graphql`
         }
       }
     }
-    images: allFile(
-      filter: { relativePath: { regex: $images } }
-      sort: { fields: name, order: ASC }
-    ) {
+    images: allFile(filter: { relativePath: { regex: $images } }, sort: { fields: name, order: ASC }) {
       nodes {
         name
         childImageSharp {
@@ -220,4 +208,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

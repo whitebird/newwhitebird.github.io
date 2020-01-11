@@ -1,12 +1,12 @@
-import React from 'react';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import { readableColor } from 'polished';
-import 'typeface-work-sans';
-import { Box, Flex } from '../elements';
-import theme from '../../config/theme';
-import reset from '../styles/reset';
-import Logo from './logo';
+import React from 'react'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { graphql, Link, useStaticQuery } from 'gatsby'
+import { readableColor } from 'polished'
+import 'typeface-work-sans'
+import { Box, Flex } from '../elements'
+import theme from '../../config/theme'
+import reset from '../styles/reset'
+import Logo from './logo'
 
 const GlobalStyles = createGlobalStyle`
   *::before,
@@ -88,29 +88,16 @@ const GlobalStyles = createGlobalStyle`
   }
   
   ${reset}
-`;
+`
 
-const isPartiallyActive = ({
-  isPartiallyCurrent
-}: {
-  isPartiallyCurrent: boolean;
-}) =>
-  isPartiallyCurrent
-    ? { className: 'navlink-active navlink' }
-    : { className: 'navlink' };
+const isPartiallyActive = ({ isPartiallyCurrent }: { isPartiallyCurrent: boolean }) =>
+  isPartiallyCurrent ? { className: 'navlink-active navlink' } : { className: 'navlink' }
 
-const PartialNavLink = ({
-  children,
-  to,
-  ...rest
-}: {
-  children: React.ReactNode;
-  to: string;
-}) => (
+const PartialNavLink = ({ children, to, ...rest }: { children: React.ReactNode; to: string }) => (
   <Link getProps={isPartiallyActive} to={to} {...rest}>
     {children}
   </Link>
-);
+)
 
 const Wrapper = styled.div`
   display: grid;
@@ -122,7 +109,7 @@ const Wrapper = styled.div`
   @media (max-width: ${props => props.theme.breakpoints[2]}) {
     grid-template-columns: 1fr;
   }
-`;
+`
 
 const SideBarInner = styled(Box)<{ bg: string }>`
   position: fixed;
@@ -147,7 +134,7 @@ const SideBarInner = styled(Box)<{ bg: string }>`
   svg {
     fill: ${props => readableColor(`${props.bg}`)};
   }
-`;
+`
 
 const Nav = styled(Flex)<{ color: string }>`
   a {
@@ -176,13 +163,13 @@ const Nav = styled(Flex)<{ color: string }>`
       margin-left: ${props => props.theme.space[2]};
     }
   }
-`;
+`
 
 const Main = styled.main`
   @media (min-width: calc(${props => props.theme.breakpoints[2]} + 1px)) {
     grid-column-start: 2;
   }
-`;
+`
 
 const Footer = styled.footer<{ color: string }>`
   position: fixed;
@@ -191,8 +178,7 @@ const Footer = styled.footer<{ color: string }>`
 
   background: ${props => props.color};
 
-  color: ${props =>
-    readableColor(`${props.color}`, `${props.theme.colors.grey}`, '#c3c3c3')};
+  color: ${props => readableColor(`${props.color}`, `${props.theme.colors.grey}`, '#c3c3c3')};
 
   a {
     color: ${props => readableColor(`${props.color}`)};
@@ -210,25 +196,25 @@ const Footer = styled.footer<{ color: string }>`
     position: relative;
     width: 100%;
   }
-`;
+`
 
-type LayoutProps = { children: React.ReactNode } & typeof defaultProps;
+type LayoutProps = { children: React.ReactNode } & typeof defaultProps
 
 const defaultProps = {
-  color: 'white'
-};
+  color: 'white',
+}
 
 interface QueryResult {
   navigation: {
     nodes: {
-      name: string;
-      link: string;
-    }[];
-  };
+      name: string
+      link: string
+    }[]
+  }
 }
 
 const Layout = ({ children, color }: LayoutProps) => {
-  const data: QueryResult = useStaticQuery(query);
+  const data: QueryResult = useStaticQuery(query)
 
   return (
     <ThemeProvider theme={theme}>
@@ -272,12 +258,12 @@ const Layout = ({ children, color }: LayoutProps) => {
         </Wrapper>
       </>
     </ThemeProvider>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
 
-Layout.defaultProps = defaultProps;
+Layout.defaultProps = defaultProps
 
 const query = graphql`
   query Layout {
@@ -288,4 +274,4 @@ const query = graphql`
       }
     }
   }
-`;
+`
