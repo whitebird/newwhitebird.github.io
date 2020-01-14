@@ -16,11 +16,12 @@ const Group = styled.div`
 const Label = styled.label`
   width: 100%;
   margin-right: 0;
-  text-align: center;
+  text-align: left;
   @media screen and (min-width: 900px) {
     width: 140px;
     margin-right: 10px;
     text-align: right;
+    margin-top: 8px;
   }
   display: inline-block;
   vertical-align: top;
@@ -33,13 +34,13 @@ const Input = styled.input`
     margin: 0px;
   }
   box-sizing: border-box;
-  border: 1px solid #bebebe;
+  border: 1px solid black;
   outline: none;
 `;
 const Message = styled.textarea`
-  resize: none;
   width: 100%;
   box-sizing: border-box;
+  border: 1px solid black;
   @media screen and (min-width: 900px) {
     width: 60%;
     padding: 7px;
@@ -98,7 +99,11 @@ const Contact = () => {
         <h1>You talking to me?</h1>
         <p>
           Fill in this form if you wish to contact me and I'll get back to you
-          as soon as possible.
+          as soon as possible. You can also send an email to{' '}
+          <a href="mailto:contact@sebastiaanjansen.be">
+            contact@sebastiaanjansen.be
+          </a>
+          .
         </p>
         <Form action="https://formspree.io/xdoenavy" method="POST">
           <input type="text" name="_gotcha" style={{ display: 'none' }} />

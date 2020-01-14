@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Link } from 'gatsby'
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const GridItem = styled(Link)`
   position: relative;
@@ -9,6 +9,8 @@ const GridItem = styled(Link)`
     right: 0;
     bottom: 0;
     left: 0;
+    /* box-sizing: border-box;
+    border: 20px solid white; */
   }
   > div img {
     transition: all 0.3s ease 0s !important;
@@ -35,6 +37,6 @@ const GridItem = styled(Link)`
       transform: scale(1.1);
     }
   }
-`
+`;
 
-export default GridItem
+export default GridItem;

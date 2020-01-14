@@ -2,7 +2,7 @@
   title_detail: 'Marble Machine X'
   slug: 'marblemachinex'
   category: 'Maker'
-  color: '#EADAB9'
+  color: '#DFC4A3'
   images: 'mmx'
   youtube:
     - 'IvUU8joBb1Q'
@@ -13,18 +13,28 @@
   title_detail: 'Tik Tak'
   slug: 'tiktak'
   category: 'Maker'
-  color: '#182d54'
+  color: '#051E3C'
   images: 'tiktak'
   youtube:
     - '_yPvRyfdJlw'
     - '5325efJ4te0'
   cover: './tiktak/projects-tiktak-001.jpg'
   desc: "Tik Tak is the name of the children's show for Flemish television. For some parts of the show custom parts were 3D printed, lasercut and combined with Arduino modules and mostly off-the-shelf components. Models were designed with Fusion360 and edited with Inkscape. Parts were printed with an Ultimaker 3 and laser cut with a Trotec Speedy 300."
+- title: 'Oreo YouTube counter'
+  title_detail: 'Giant Oreo YouTube subscriber counter'
+  slug: 'oreo'
+  category: 'Maker'
+  color: '#006991'
+  youtube:
+    - 'q25vzQsPtV0'
+    - 'padNcBaJYao'
+  cover: './oreo/projects-oreo-001.png'
+  desc: "Together with comedian <a href=\"https://www.henkrijckaert.be/\ title=\"homepage Henk Rijckaert\">Henk Rijckaert</a> I built a giant Oreo for the show called \"Standaard Koekhandel\" by comedian Lukas Lelie. In that show guests come and review their favourite cookie. Henk and I got together and found it fun to create a giant Oreo one that shows Lukas' YouTube subscribers."
 - title: 'Snow Patrol Videowall'
   title_detail: 'Snow Patrol Videowall'
   slug: 'videowall'
   category: 'Maker'
-  color: '#182d54'
+  color: '#01042C'
   images: 'videowall'
   youtube: []
   cover: './videowall/projects-videowall-001.jpg'
@@ -40,4 +50,4 @@
     - 'gwHjslTJKfo'
     - '3Hd4Of8mj3Y'
   cover: './digibende/projects-digibende-001.jpg'
-  desc: 'Digibende'
+  desc: 'The Digibende was a series of commercials for the Belgian ISP Telenet. We were a group of twenty twenty-year-olds with a core group of six who toured Flanders solving various digital needs. For this group I built and presented various maker-related projects using off-the-shelf components.'

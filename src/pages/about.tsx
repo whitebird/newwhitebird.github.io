@@ -24,9 +24,10 @@ const About = () => {
         py={[6, 6, 6, 8]}
         px={[6, 6, 8, 6, 8, 13]}
       >
-        <h1>Hi. I'm Sebastiaan Jansen!</h1>
+        <h1>I've been expecting you ...</h1>
         <p>
-          A {ageInYears}-year-old employee of the Flemish broadcaster{' '}
+          Greetings, my name is Dr. Skunk (Sebastiaan Jansen), a {ageInYears}
+          -year-old employee of the Flemish broadcaster{' '}
           <a href="https://www.vrt.be/" title="VRT main website">
             VRT
           </a>
@@ -55,6 +56,13 @@ const About = () => {
           <Link to="/instagram">my Instagram feed</Link>. In the few hours I
           have left I do improv theatre at{' '}
           <a href="http://preparee.be/">Preparee</a>.
+        </p>
+        <h1>So what's the deal with your hair?</h1>
+        <p>
+          So right, I get asked this a lot. I have a auto-immune skin condition
+          called vitiligo which makes patches of skin lose their pigment.
+          Sometimes the hair on that spot becomes white, which you can see on my
+          head. So no, it's not contagious and no, I don't dye my hair.
         </p>
       </AnimatedBox>
     </Layout>

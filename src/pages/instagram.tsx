@@ -138,8 +138,9 @@ const Instagram: React.FunctionComponent<Props> = ({
     <Layout color="#3F4F67">
       <SEO title="Instagram | Sebastiaan Jansen" />
       <AnimatedBox style={pageAnimation} py={[6, 6, 6, 8]} px={[6, 6, 8, 6, 8, 13]}>
-        <h1>Hi. I'm Sebastiaan Jansen!</h1>
-        <p>Instagram explanation</p>
+        <h1>Instagram</h1>
+        <p>On my Instagram page I try to post regular updates on the projects I'm working on, as well as the results of the smaller projects I do.</p>
+        <p>This feed is directly taken from <a href="instagram.com/ikbensebastiaan/">my instagram page</a>, where you can follow me in a non-stalkery way.</p>
       </AnimatedBox>
       <Grid style={pageAnimation}>
         {trail.map((style, index) => {
